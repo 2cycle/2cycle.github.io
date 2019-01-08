@@ -6,17 +6,17 @@
     <description>Recent content in study on ecycle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 08 Jan 2019 14:53:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://2cycle.github.io/tags/study/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>
-      <link>https://2cycle.github.io/post/effectivejava_item_1/</link>
-      <pubDate>Tue, 08 Jan 2019 14:53:00 +0900</pubDate>
+      <link>https://2cycle.github.io/2019/effectivejava_item_1/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://2cycle.github.io/post/effectivejava_item_1/</guid>
+      <guid>https://2cycle.github.io/2019/effectivejava_item_1/</guid>
       <description>Effective Java 3/e Chapter 2. Item 1. 생성자 대신 정적 팩터리 메서드를 고려하라 장점  이름을 가질 수 있다.
  생성자에 넘기는 매개변수와 생성자 자체만으로는 반환된 객체의 특성을 제대로 설명하지 못한다.
  정적 팩터리는 이름만 잘 지으면 반환될 객체의 특성을 쉽게 표시할 수 있다.

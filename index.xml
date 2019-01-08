@@ -6,15 +6,15 @@
     <description>Recent content in ecycle on ecycle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 08 Jan 2019 14:53:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>
-      <link>https://2cycle.github.io/post/effectivejava_item_1/</link>
-      <pubDate>Tue, 08 Jan 2019 14:53:00 +0900</pubDate>
+      <link>https://2cycle.github.io/2019/effectivejava_item_1/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://2cycle.github.io/post/effectivejava_item_1/</guid>
+      <guid>https://2cycle.github.io/2019/effectivejava_item_1/</guid>
       <description>
 
 &lt;h2 id=&#34;effective-java-3-e-chapter-2&#34;&gt;Effective Java 3/e  Chapter 2.&lt;/h2&gt;
@@ -127,10 +127,10 @@
     
     <item>
       <title>Init</title>
-      <link>https://2cycle.github.io/post/init/</link>
+      <link>https://2cycle.github.io/2019/init/</link>
       <pubDate>Thu, 03 Jan 2019 18:22:41 +0900</pubDate>
       
-      <guid>https://2cycle.github.io/post/init/</guid>
+      <guid>https://2cycle.github.io/2019/init/</guid>
       <description>&lt;p&gt;시작했다.
 2주동안 테마고르고 지우고 고르고 지우고 반영안돼서 지우고 하다가 간단히 쓰려고 이렇게 만들었다.&lt;/p&gt;
 
