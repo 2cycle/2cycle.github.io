@@ -165,6 +165,100 @@ cocaCola.setTest4(4);
     </item>
     
     <item>
+      <title>EffectiveJava_Item_5</title>
+      <link>https://2cycle.github.io/2019/effectivejava_item_5/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://2cycle.github.io/2019/effectivejava_item_5/</guid>
+      <description>
+
+&lt;h2 id=&#34;effective-java-3-e-chapter-2&#34;&gt;Effective Java 3/e Chapter 2.&lt;/h2&gt;
+
+&lt;h3 id=&#34;item-5-자원을-직접-명시하지-말고-의존-객체-주입을-사용하라&#34;&gt;Item 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;인스턴스를 생성할 때 생성자에게 필요한 자원을 넘겨주는 방식
+
+&lt;ul&gt;
+&lt;li&gt;불변을 보장하여 여러 클라이언트가 공유하여 사용 가능&lt;/li&gt;
+&lt;li&gt;의존 객체 주입은 생성자, 정적 팩터리, 빌더 모두 응용 가능&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;생성자에 자원 팩터리를 넘겨주는 방식
+
+&lt;ul&gt;
+&lt;li&gt;팩터리 메서드 패턴 (Factory Method pattern 구현)&lt;/li&gt;
+&lt;li&gt;Java8 Supplier&lt;T&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Mosaic.java
+
+import java.util.function.Supplier;
+import java.util.stream.IntStream;
+
+@Slf4j
+public class Mosaic {
+    private final Tile tile;
+
+    private Mosaic(Tile tile) {
+        this.tile = tile;
+    }
+
+    public void print() {
+        IntStream.range(1,10)
+                .forEach( i -&amp;gt; {
+                    IntStream.range(1,i).forEach(i2-&amp;gt;System.out.print(tile.tile()));
+                    System.out.println();
+                } );
+    }
+
+    public static Mosaic create(Supplier&amp;lt;? extends Tile&amp;gt; tileFactory ) {
+        return new Mosaic(tileFactory.get());
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Tile.java
+
+public class Tile {
+    private final String tile;
+    public Tile(String tile) {
+        this.tile = tile;
+    }
+    public String tile() {
+        return tile;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Item05.java
+
+import java.util.function.Supplier;
+
+public class Item05 {
+    public static void main(String[] args) {
+        Mosaic aMosaic1 = Mosaic.create(new Supplier&amp;lt;Tile&amp;gt;() {
+            @Override
+            public Tile get() {
+                return new Tile(&amp;quot;a&amp;quot;);
+            }
+        });
+        Mosaic aMosaic = Mosaic.create(() -&amp;gt; new Tile(&amp;quot;a&amp;quot;));
+        aMosaic.print();
+
+        Mosaic bMosaic = Mosaic.create(() -&amp;gt; new Tile(&amp;quot;b&amp;quot;));
+        bMosaic.print();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;의존 객체 주입은 유연성, 재사용성, 테스트 용이성을 개선해준다.&lt;/p&gt;
+
+&lt;p&gt;예제코드 출처 : &lt;a href=&#34;https://github.com/bnpdukim/effective-java-3e/blob/master/src/main/java/study/effective/ch02/item05/Tile.java&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/bnpdukim/effective-java-3e/blob/master/src/main/java/study/effective/ch02/item05/Tile.java&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>
       <link>https://2cycle.github.io/2019/effectivejava_item_1/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>

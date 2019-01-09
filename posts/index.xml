@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>EffectiveJava_Item_5</title>
+      <link>https://2cycle.github.io/2019/effectivejava_item_5/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://2cycle.github.io/2019/effectivejava_item_5/</guid>
+      <description>Effective Java 3/e Chapter 2. Item 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라  인스턴스를 생성할 때 생성자에게 필요한 자원을 넘겨주는 방식  불변을 보장하여 여러 클라이언트가 공유하여 사용 가능 의존 객체 주입은 생성자, 정적 팩터리, 빌더 모두 응용 가능  생성자에 자원 팩터리를 넘겨주는 방식  팩터리 메서드 패턴 (Factory Method pattern 구현) Java8 Supplier   Mosaic.java import java.util.function.Supplier; import java.util.stream.IntStream; @Slf4j public class Mosaic { private final Tile tile; private Mosaic(Tile tile) { this.</description>
+    </item>
+    
+    <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>
       <link>https://2cycle.github.io/2019/effectivejava_item_1/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
