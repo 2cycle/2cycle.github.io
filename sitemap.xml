@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://2cycle.github.io/2019/effectivejava_item_2/</loc>
+      
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://2cycle.github.io/2019/effectivejava_item_1/</loc>
       
       <lastmod>2019-01-08T00:00:00+00:00</lastmod>
@@ -45,7 +55,7 @@
     <url>
       <loc>https://2cycle.github.io/posts/</loc>
       
-      <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
       
       
@@ -67,19 +77,7 @@
     <url>
       <loc>https://2cycle.github.io/</loc>
       
-      <lastmod>2019-01-08T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://2cycle.github.io/categories/effectivejava/</loc>
-      
-      <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
       
       
@@ -91,7 +89,19 @@
     <url>
       <loc>https://2cycle.github.io/tags/effectivejava/</loc>
       
-      <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://2cycle.github.io/categories/effectivejava/</loc>
+      
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
       
       
@@ -113,9 +123,21 @@
     </url>
   
     <url>
+      <loc>https://2cycle.github.io/tags/item3/</loc>
+      
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://2cycle.github.io/tags/java/</loc>
       
-      <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
       
       

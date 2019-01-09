@@ -9,9 +9,9 @@
   <meta name="description" content="Project - make me better">
   <meta name="keywords" content="development, programmer, dev, backend">
   
-  <link rel="prev" href="https://2cycle.github.io/2019/init/" />
-  <link rel="next" href="https://2cycle.github.io/2019/effectivejava_item_2/" />
-  <link rel="canonical" href="https://2cycle.github.io/2019/effectivejava_item_1/" />
+  <link rel="prev" href="https://2cycle.github.io/2019/effectivejava_item_1/" />
+  
+  <link rel="canonical" href="https://2cycle.github.io/2019/effectivejava_item_2/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Effective JAVA 정리 chapter / item 1  | ecycle
+           EffectiveJava_Item_2 | ecycle
        
   </title>
-  <meta name="title" content="Effective JAVA 정리 chapter / item 1  | ecycle">
+  <meta name="title" content="EffectiveJava_Item_2 | ecycle">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,13 +44,9 @@
          "@id": "https://2cycle.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Effective JAVA 정리 chapter / item 1 ",
-    "headline" : "Effective JAVA 정리 chapter / item 1 ",
-    "description" : "Effective Java 3/e Chapter 2. Item 1. 생성자 대신 정적 팩터리 메서드를 고려하라 장점  이름을 가질 수 있다.
- 생성자에 넘기는 매개변수와 생성자 자체만으로는 반환된 객체의 특성을 제대로 설명하지 못한다.
- 정적 팩터리는 이름만 잘 지으면 반환될 객체의 특성을 쉽게 표시할 수 있다.
-   BinInteger(int , int , Random) vs BigInteger.probablePrime( int, Random)   호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.
- 불변 클래스는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있다.",
+    "name" : "EffectiveJava_Item_2",
+    "headline" : "EffectiveJava_Item_2",
+    "description" : "Effective Java 3/e Chapter 2. Item 2. 생성자 매개변수가 많다면 빌드를 고려하라  점층적 생성자 패턴 (telescoping constructor pattern)  필수 매개변수 생성자 + 선택 매개변수의 갯수에 맞는 생성자를 늘려가는 방식 매개변수가 많아지면 클라이언트 코드를 작성하거나 읽기 어렵다.   public class NutritionFacts { priavte fianl int test1; priavte fianl int test2; priavte fianl int test3; priavte fianl int test4; public NutritionFacts(int test1, int test2){ this(test1,test2,0); } public NutritionFacts(int test1, int test2, int test3){ this(test1, test2, test3, 0); } .",
     "inLanguage" : "kr-ko",
     "author" : "Soonhwan.Lee",
     "creator" : "Soonhwan.Lee",
@@ -58,11 +54,11 @@
     "accountablePerson" : "Soonhwan.Lee",
     "copyrightHolder" : "Soonhwan.Lee",
     "copyrightYear" : "2019",
-    "datePublished": "2019-01-08 00:00:00 &#43;0000 UTC",
-    "dateModified" : "2019-01-08 00:00:00 &#43;0000 UTC",
-    "url" : "https://2cycle.github.io/2019/effectivejava_item_1/",
-    "wordCount" : "252",
-    "keywords" : [ "java","item1","effectivejava","study", "ecycle"]
+    "datePublished": "2019-01-09 00:00:00 &#43;0000 UTC",
+    "dateModified" : "2019-01-09 00:00:00 &#43;0000 UTC",
+    "url" : "https://2cycle.github.io/2019/effectivejava_item_2/",
+    "wordCount" : "339",
+    "keywords" : [ "java","effectivejava","item3", "ecycle"]
 }
 </script>
 
@@ -120,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Effective JAVA 정리 chapter / item 1 </h1>
+        <h1 class="post-title" itemprop="name headline">EffectiveJava_Item_2</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-01-08 itemprop="datePublished">January 8, 2019</time>
+                on <time datetime=2019-01-09 itemprop="datePublished">January 9, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -152,91 +148,150 @@
 
           
 
-<h2 id="effective-java-3-e-chapter-2">Effective Java 3/e  Chapter 2.</h2>
+<h2 id="effective-java-3-e-chapter-2">Effective Java 3/e Chapter 2.</h2>
 
-<h3 id="item-1-생성자-대신-정적-팩터리-메서드를-고려하라">Item 1. 생성자 대신 정적 팩터리 메서드를 고려하라</h3>
-
-<h4 id="장점">장점</h4>
+<h3 id="item-2-생성자-매개변수가-많다면-빌드를-고려하라">Item 2. 생성자 매개변수가 많다면 빌드를 고려하라</h3>
 
 <ul>
-<li><p>이름을 가질 수 있다.</p>
+<li>점층적 생성자 패턴 (telescoping constructor pattern)
 
 <ul>
-<li><p>생성자에 넘기는 매개변수와 생성자 자체만으로는 반환된 객체의 특성을 제대로 설명하지 못한다.</p></li>
-
-<li><p>정적 팩터리는 이름만 잘 지으면 반환될 객체의 특성을 쉽게 표시할 수 있다.</p></li>
+<li>필수 매개변수 생성자 + 선택 매개변수의 갯수에 맞는 생성자를 늘려가는 방식</li>
+<li>매개변수가 많아지면 클라이언트 코드를 작성하거나 읽기 어렵다.</li>
 </ul></li>
 </ul>
 
-<pre><code class="language-Ex">  BinInteger(int , int , Random) vs BigInteger.probablePrime( int, Random)
+<pre><code class="language-Ex">public class NutritionFacts {
+    priavte fianl int test1;
+    priavte fianl int test2;
+    priavte fianl int test3;
+    priavte fianl int test4;
+    
+    public NutritionFacts(int test1, int test2){
+        this(test1,test2,0);
+    }
+    public NutritionFacts(int test1, int test2, int test3){
+        this(test1, test2, test3, 0);
+    }
+    
+    ...
+    
+}
+
 </code></pre>
 
 <ul>
-<li><p>호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.</p>
+<li>자바빈즈 패턴 (JavaBeans pattern)
 
 <ul>
-<li>불변 클래스는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 재활용하는 식으로 불필요한 객체 생성을 피할 수 있다.</li>
+<li>매개변수가 없는 생성자로 객체를 만든 후, 세터(setter) 메서드를 호출하여 값 설정</li>
+<li>객체가 완성되기 전까지 일관성이 무너진 상태에 놓임</li>
+<li>클래스를 불면으로 만들 수 없음</li>
 </ul></li>
 </ul>
 
-<pre><code class="language-Ex">  Boolean.valueOf(boolean)
+<pre><code class="language-Ex">NutritionFacts cocaCola = nw NutritionFacts();
+cocaCola.setTest1(1);
+cocaCola.setTest2(2);
+cocaCola.setTest3(3);
+cocaCola.setTest4(4);
 </code></pre>
 
 <ul>
-<li><p>반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.</p>
+<li>빌더 패턴 (Builder pattern)
 
 <ul>
-<li><p>자바 8 이전에는 interface 에 companion class(인스턴스화 불가 동반 클레스)가 필요하였다. (Ex Collection)</p></li>
-
-<li><p>자바 8부터는 interface 내에 정적 메서드를 가질 수 있어 default method 활용 가능</p></li>
+<li>필수 매개변수만으로 생성자를 호출해 빌더 객체를 얻고, 빌더 객체가 제공하는 세터 메서드로 선택 매개변수들 설정</li>
+<li>쓰기 쉽고, 읽기 쉽다.</li>
+<li>계층적으로 설계된 클래스와 함께 쓰기에 좋다.</li>
 </ul></li>
-
-<li><p>입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.</p></li>
 </ul>
 
-<pre><code class="language-Ex">   EnumSet 클래스는 원소(매개변수) 갯수에 따라
-   64개 이하 - RegularEnumSet 인스턴스(long변수 하나로 관리),
-   65개 이상 - JumboEnumSet의 인스턴스(long배열로 관리) 를 반환한다.
+<pre><code class="language-Nu">public class NutritionFacts {
+    //필수
+    private final int servingSize;
+    private final int servings;
+    //옵션
+    private final int calories;
+    private final int fat;
+    private final int sodium;
+    private final int carbohydrate;
+
+    private NutritionFacts(Builder builder) {
+        this.servingSize = builder.servingSize;
+        this.servings = builder.servings;
+        this.calories = builder.calories;
+        this.fat = builder.fat;
+        this.sodium = builder.sodium;
+        this.carbohydrate = builder.carbohydrate;
+    }
+
+    public static class Builder {
+        private final int servingSize;
+        private final int servings;
+
+        private int calories = 0;
+        private int fat = 0;
+        private int sodium = 0;
+        private int carbohydrate = 0;
+
+        public Builder(int servingSize, int servings) {
+            this.servingSize = servingSize;
+            this.servings = servings;
+        }
+
+        public Builder calories(int calories) {
+            this.calories = calories;
+            return this;
+        }
+
+        public Builder fat(int fat) {
+            this.fat = fat;
+            return this;
+        }
+
+
+        public Builder sodium(int sodium) {
+            this.sodium = sodium;
+            return this;
+        }
+
+        public Builder carbohydrate(int carbohydrate) {
+            this.carbohydrate = carbohydrate;
+            return this;
+        }
+
+
+        public NutritionFacts build() {
+            return new NutritionFacts(this);
+        }
+    }
+
+}
 </code></pre>
 
-<ul>
-<li><p>정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.</p>
+<pre><code class="language-Basic.java">public class Item02Basic {
+    public static void main(String[] args) {
+        NutritionFacts cocaCola = new NutritionFacts.Builder(240,8)
+                .calories(100)
+                .sodium(35)
+                .carbohydrate(27)
+                .build();
+        log.info(&quot;cocaCola : {}&quot;, cocaCola);
 
-<ul>
-<li>서비스 제공자 프레임워크(service provider framework)를 만드는 근간 (ex JDBC)</li>
-</ul></li>
-</ul>
-
-<pre><code class="language-Ex">  서비스 제공자 프레임워크에서 provider는 서비스 구현체. 이 구현체들을 따라 클라이언트에서 제공하는 역할을 프레임워크가 통제하야, 클라이언트를 구현체로부터 분리
+        NutritionFacts2 cocaCola2 = NutritionFacts2.builder()
+                .servingSize(240)
+                .servings(8)
+                .calories(100)
+                .sodium(35)
+                .carbohydrate(27)
+                .build();
+        log.info(&quot;cocaCola2 : {}&quot;, cocaCola2);
+    }
+}
 </code></pre>
 
-<h4 id="단점">단점</h4>
-
-<ul>
-<li>상속을 하려면 public이나 protected 생성자가 필요하니 정적 팩터리 메서드만 제공하면 하위 클래스를 만들 수 없다.
-
-<ul>
-<li>컴포지션을 사용하도록 유도</li>
-<li>생성자의 경우 보통 private으로 만듬</li>
-</ul></li>
-<li>정적 팩터리 메서드는 프로그래머가 찾기 어렵다.
-
-<ul>
-<li>자바독이 알아서 처리할 수 없으므로 API정리를 잘 해놔야하고 규약에 따라 메서드 이름을 정리</li>
-<li>from</li>
-<li>of</li>
-<li>valueOf</li>
-<li>instance</li>
-<li>create</li>
-<li>getType</li>
-<li>newType</li>
-<li>type</li>
-</ul></li>
-</ul>
-
-<p>생성자를 사용시에 무분별하게 public 생성자를 사용하였는데, 이 책의 시작이었던 Item1을 읽으면서 조금 부끄러웠다.</p>
-
-<p>Item 90까지 읽으면 부끄럽지 않은 코딩을 할 수 있을까.</p>
+<p>예제 소스 출처 : <a href="https://github.com/bnpdukim/effective-java-3e/tree/master/src/main/java/study/effective/ch02/item02/basic" rel="nofollow noreferrer" target="_blank">https://github.com/bnpdukim/effective-java-3e/tree/master/src/main/java/study/effective/ch02/item02/basic</a></p>
 
     </div>
 
@@ -251,7 +306,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://2cycle.github.io/2019/effectivejava_item_1/>https://2cycle.github.io/2019/effectivejava_item_1/</span>
+                    <a href=https://2cycle.github.io/2019/effectivejava_item_2/>https://2cycle.github.io/2019/effectivejava_item_2/</span>
             </p>
             
             
@@ -266,14 +321,11 @@
             <span class="tag"><a href="https://2cycle.github.io/tags/java/">
                     #java</a></span>
             
-            <span class="tag"><a href="https://2cycle.github.io/tags/item1/">
-                    #item1</a></span>
-            
             <span class="tag"><a href="https://2cycle.github.io/tags/effectivejava/">
                     #effectivejava</a></span>
             
-            <span class="tag"><a href="https://2cycle.github.io/tags/study/">
-                    #study</a></span>
+            <span class="tag"><a href="https://2cycle.github.io/tags/item3/">
+                    #item3</a></span>
             
             </section>
         
@@ -285,10 +337,8 @@
 
     <div class="post-nav">
         
-        <a href="https://2cycle.github.io/2019/init/" class="prev" rel="prev" title="Init"><i class="iconfont icon-left"></i>&nbsp;Init</a>
+        <a href="https://2cycle.github.io/2019/effectivejava_item_1/" class="prev" rel="prev" title="Effective JAVA 정리 chapter / item 1 "><i class="iconfont icon-left"></i>&nbsp;Effective JAVA 정리 chapter / item 1 </a>
          
-        
-        <a href="https://2cycle.github.io/2019/effectivejava_item_2/" class="next" rel="next" title="EffectiveJava_Item_2">EffectiveJava_Item_2&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -6,8 +6,163 @@
     <description>Recent content in ecycle on ecycle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>EffectiveJava_Item_2</title>
+      <link>https://2cycle.github.io/2019/effectivejava_item_2/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://2cycle.github.io/2019/effectivejava_item_2/</guid>
+      <description>
+
+&lt;h2 id=&#34;effective-java-3-e-chapter-2&#34;&gt;Effective Java 3/e Chapter 2.&lt;/h2&gt;
+
+&lt;h3 id=&#34;item-2-생성자-매개변수가-많다면-빌드를-고려하라&#34;&gt;Item 2. 생성자 매개변수가 많다면 빌드를 고려하라&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;점층적 생성자 패턴 (telescoping constructor pattern)
+
+&lt;ul&gt;
+&lt;li&gt;필수 매개변수 생성자 + 선택 매개변수의 갯수에 맞는 생성자를 늘려가는 방식&lt;/li&gt;
+&lt;li&gt;매개변수가 많아지면 클라이언트 코드를 작성하거나 읽기 어렵다.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Ex&#34;&gt;public class NutritionFacts {
+    priavte fianl int test1;
+    priavte fianl int test2;
+    priavte fianl int test3;
+    priavte fianl int test4;
+    
+    public NutritionFacts(int test1, int test2){
+        this(test1,test2,0);
+    }
+    public NutritionFacts(int test1, int test2, int test3){
+        this(test1, test2, test3, 0);
+    }
+    
+    ...
+    
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;자바빈즈 패턴 (JavaBeans pattern)
+
+&lt;ul&gt;
+&lt;li&gt;매개변수가 없는 생성자로 객체를 만든 후, 세터(setter) 메서드를 호출하여 값 설정&lt;/li&gt;
+&lt;li&gt;객체가 완성되기 전까지 일관성이 무너진 상태에 놓임&lt;/li&gt;
+&lt;li&gt;클래스를 불면으로 만들 수 없음&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Ex&#34;&gt;NutritionFacts cocaCola = nw NutritionFacts();
+cocaCola.setTest1(1);
+cocaCola.setTest2(2);
+cocaCola.setTest3(3);
+cocaCola.setTest4(4);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;빌더 패턴 (Builder pattern)
+
+&lt;ul&gt;
+&lt;li&gt;필수 매개변수만으로 생성자를 호출해 빌더 객체를 얻고, 빌더 객체가 제공하는 세터 메서드로 선택 매개변수들 설정&lt;/li&gt;
+&lt;li&gt;쓰기 쉽고, 읽기 쉽다.&lt;/li&gt;
+&lt;li&gt;계층적으로 설계된 클래스와 함께 쓰기에 좋다.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Nu&#34;&gt;public class NutritionFacts {
+    //필수
+    private final int servingSize;
+    private final int servings;
+    //옵션
+    private final int calories;
+    private final int fat;
+    private final int sodium;
+    private final int carbohydrate;
+
+    private NutritionFacts(Builder builder) {
+        this.servingSize = builder.servingSize;
+        this.servings = builder.servings;
+        this.calories = builder.calories;
+        this.fat = builder.fat;
+        this.sodium = builder.sodium;
+        this.carbohydrate = builder.carbohydrate;
+    }
+
+    public static class Builder {
+        private final int servingSize;
+        private final int servings;
+
+        private int calories = 0;
+        private int fat = 0;
+        private int sodium = 0;
+        private int carbohydrate = 0;
+
+        public Builder(int servingSize, int servings) {
+            this.servingSize = servingSize;
+            this.servings = servings;
+        }
+
+        public Builder calories(int calories) {
+            this.calories = calories;
+            return this;
+        }
+
+        public Builder fat(int fat) {
+            this.fat = fat;
+            return this;
+        }
+
+
+        public Builder sodium(int sodium) {
+            this.sodium = sodium;
+            return this;
+        }
+
+        public Builder carbohydrate(int carbohydrate) {
+            this.carbohydrate = carbohydrate;
+            return this;
+        }
+
+
+        public NutritionFacts build() {
+            return new NutritionFacts(this);
+        }
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Basic.java&#34;&gt;public class Item02Basic {
+    public static void main(String[] args) {
+        NutritionFacts cocaCola = new NutritionFacts.Builder(240,8)
+                .calories(100)
+                .sodium(35)
+                .carbohydrate(27)
+                .build();
+        log.info(&amp;quot;cocaCola : {}&amp;quot;, cocaCola);
+
+        NutritionFacts2 cocaCola2 = NutritionFacts2.builder()
+                .servingSize(240)
+                .servings(8)
+                .calories(100)
+                .sodium(35)
+                .carbohydrate(27)
+                .build();
+        log.info(&amp;quot;cocaCola2 : {}&amp;quot;, cocaCola2);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;예제 소스 출처 : &lt;a href=&#34;https://github.com/bnpdukim/effective-java-3e/tree/master/src/main/java/study/effective/ch02/item02/basic&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/bnpdukim/effective-java-3e/tree/master/src/main/java/study/effective/ch02/item02/basic&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>

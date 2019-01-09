@@ -6,10 +6,19 @@
     <description>Recent content in effectivejava on ecycle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://2cycle.github.io/tags/effectivejava/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EffectiveJava_Item_2</title>
+      <link>https://2cycle.github.io/2019/effectivejava_item_2/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://2cycle.github.io/2019/effectivejava_item_2/</guid>
+      <description>Effective Java 3/e Chapter 2. Item 2. 생성자 매개변수가 많다면 빌드를 고려하라  점층적 생성자 패턴 (telescoping constructor pattern)  필수 매개변수 생성자 + 선택 매개변수의 갯수에 맞는 생성자를 늘려가는 방식 매개변수가 많아지면 클라이언트 코드를 작성하거나 읽기 어렵다.   public class NutritionFacts { priavte fianl int test1; priavte fianl int test2; priavte fianl int test3; priavte fianl int test4; public NutritionFacts(int test1, int test2){ this(test1,test2,0); } public NutritionFacts(int test1, int test2, int test3){ this(test1, test2, test3, 0); } .</description>
+    </item>
     
     <item>
       <title>Effective JAVA 정리 chapter / item 1 </title>
