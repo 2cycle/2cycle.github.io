@@ -22,10 +22,10 @@
   <title>
        
        
-           Ssl_Monitering | ecycle
+           ssl파일 만료일자 모니터링 | ecycle
        
   </title>
-  <meta name="title" content="Ssl_Monitering | ecycle">
+  <meta name="title" content="ssl파일 만료일자 모니터링 | ecycle">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,10 @@
          "@id": "https://2cycle.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Ssl_Monitering",
-    "headline" : "Ssl_Monitering",
-    "description" : "SSL 만료 확인 Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들에 대해선 ssl 인증이 만료되는 것을 미리 알기 위해서 간단히 shell script를 만들어서 crontab에 등록해놓았다.
+    "name" : "ssl파일 만료일자 모니터링",
+    "headline" : "ssl파일 만료일자 모니터링",
+    "description" : "SSL 만료 확인 Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들이기에&hellip;
+간단히 ssl 인증이 만료되는 것을 방지하기위해 간단히 shell script를 만들어서 crontab에 등록해놓았다.
 스크립트는 아주 간단한데
  먼저 ssl 위치를 확인하고 인증 만료 시간을 확인한다.  $ openssl x509 -in /etc/httpd/conf/ssl/인증서.crt   오늘 날짜를 가지고와서 notAfter 타임과 비교하여 차이를 구한다.
  조건 일자 이상인 경우 알림을 알린다. (필자의 경우 curl을 통해 post콜을 하였다.",
@@ -60,7 +61,7 @@
     "datePublished": "2019-01-23 18:49:00 &#43;0900 KST",
     "dateModified" : "2019-01-23 18:49:00 &#43;0900 KST",
     "url" : "https://2cycle.github.io/2019/ssl_monitering/",
-    "wordCount" : "145",
+    "wordCount" : "143",
     "keywords" : [ "ssl_monitoring","ssl","ssl_expire", "ecycle"]
 }
 </script>
@@ -119,7 +120,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Ssl_Monitering</h1>
+        <h1 class="post-title" itemprop="name headline">ssl파일 만료일자 모니터링</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
                 <span class="post-time">
@@ -153,7 +154,9 @@
 
 <h2 id="ssl-만료-확인">SSL 만료 확인</h2>
 
-<p>Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들에 대해선 ssl 인증이 만료되는 것을 미리 알기 위해서 간단히 shell script를 만들어서 crontab에 등록해놓았다.</p>
+<p>Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들이기에&hellip;</p>
+
+<p>간단히 ssl 인증이 만료되는 것을 방지하기위해 간단히 shell script를 만들어서 crontab에 등록해놓았다.</p>
 
 <p>스크립트는 아주 간단한데</p>
 
@@ -240,7 +243,7 @@ fi
 
     <div class="post-nav">
         
-        <a href="https://2cycle.github.io/2019/linuxcommand_2/" class="prev" rel="prev" title="LinuxCommand_2"><i class="iconfont icon-left"></i>&nbsp;LinuxCommand_2</a>
+        <a href="https://2cycle.github.io/2019/linuxcommand_2/" class="prev" rel="prev" title="리눅스 커맨드 v2"><i class="iconfont icon-left"></i>&nbsp;리눅스 커맨드 v2</a>
          
         
     </div>
