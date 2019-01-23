@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linuxcommand on ecycle</title>
+    <link>https://2cycle.github.io/tags/linuxcommand/</link>
+    <description>Recent content in linuxcommand on ecycle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Wed, 23 Jan 2019 17:41:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://2cycle.github.io/tags/linuxcommand/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LinuxCommand_1</title>
+      <link>https://2cycle.github.io/2019/linuxcommand_1/</link>
+      <pubDate>Wed, 23 Jan 2019 17:41:10 +0900</pubDate>
+      
+      <guid>https://2cycle.github.io/2019/linuxcommand_1/</guid>
+      <description>요 근래 회사에서 주로 진행한 업무는 check_mk 모니터링 및 SSL 만료확인용 shell script 를 만드는 것이었다.
+리눅스 사용시 몇 개의 익숙한 명령문만 사용하였지만, 이번에 사용한 여러 명령문을 정리해보려고 한다.
+리눅스 커널 확인 getconf getcong utility shall write to the standard output the value of the variable spcified by the system_var operand
+즉 시스템 환경변수를 확인할 수 있는 명령문이다.
+ -v [path_var, pathname, system_var]
+아마도 구성된 변수를 결정하는 specific한 사양이나 버전을 표시하는 것 같다.</description>
+    </item>
+    
+  </channel>
+</rss>

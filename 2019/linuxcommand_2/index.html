@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="kr-ko">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Soonhwan.Lee">
+  <meta name="description" content="Project - make me better">
+  <meta name="keywords" content="development, programmer, dev, backend">
+  
+  <link rel="prev" href="https://2cycle.github.io/2019/linuxcommand_1/" />
+  <link rel="next" href="https://2cycle.github.io/2019/ssl_monitering/" />
+  <link rel="canonical" href="https://2cycle.github.io/2019/linuxcommand_2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           LinuxCommand_2 | ecycle
+       
+  </title>
+  <meta name="title" content="LinuxCommand_2 | ecycle">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://2cycle.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "LinuxCommand_2",
+    "headline" : "LinuxCommand_2",
+    "description" : "crontab 현재 실행중인 crontab list
+# crontab -l  Crontab 편집
+# crontab -e  다음과 같이 입력하면 vi처럼 편집할 수 있는 화면이 생긴다.
+여기서 필요한 job들을 추가한 후 :wq로 저장하면 자동으로 crontab 에 job이 추가된다.
+job설정 주기 결정 *	*	*	*	* (분) (시간) (일)	(월)	(요일)  분, 시간, 일 ,월, 요일 순이며 요일의 경우 0과 7이 일요일이며 1부터 월요일, 6이 토요일이다.
+주기 예제 * * * * * 매분 실행 0 0 * * * 매일 자정 실행 0,30 * * 1-5 월요일부터 금요일까지 매시간 0분, 30분마다 실행 */10 * * * * 매 10분 마다 실행 */10 22,23 5-10 * * 5일에서 10일까지 22시, 23시 매 10분마다 실행  job example * * * * * /root/test/test.",
+    "inLanguage" : "kr-ko",
+    "author" : "Soonhwan.Lee",
+    "creator" : "Soonhwan.Lee",
+    "publisher": "Soonhwan.Lee",
+    "accountablePerson" : "Soonhwan.Lee",
+    "copyrightHolder" : "Soonhwan.Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-23 18:29:03 &#43;0900 KST",
+    "dateModified" : "2019-01-23 18:29:03 &#43;0900 KST",
+    "url" : "https://2cycle.github.io/2019/linuxcommand_2/",
+    "wordCount" : "211",
+    "keywords" : [ "linuxCommand","crontab", "ecycle"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">LinuxCommand_2</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-23 itemprop="datePublished">January 23, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://2cycle.github.io/categories/linux/"> linux </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="crontab">crontab</h2>
+
+<p>현재 실행중인 crontab list</p>
+
+<pre><code class="language-shell"># crontab -l
+</code></pre>
+
+<p>Crontab 편집</p>
+
+<pre><code class="language-shell"># crontab -e
+</code></pre>
+
+<p>다음과 같이 입력하면 vi처럼 편집할 수 있는 화면이 생긴다.</p>
+
+<p>여기서 필요한 job들을 추가한 후 :wq로 저장하면 자동으로 crontab 에 job이 추가된다.</p>
+
+<h3 id="job설정">job설정</h3>
+
+<h5 id="주기-결정">주기 결정</h5>
+
+<pre><code class="language-shell"> *		*		*		*		*
+(분)   (시간)    (일)	 (월)	(요일)
+</code></pre>
+
+<p>분, 시간, 일 ,월, 요일 순이며 요일의 경우 0과 7이 일요일이며 1부터 월요일, 6이 토요일이다.</p>
+
+<h5 id="주기-예제">주기 예제</h5>
+
+<pre><code class="language-shell">* * * * *
+매분 실행
+
+0 0 * * *
+매일 자정 실행
+
+0,30 * * 1-5
+월요일부터 금요일까지 매시간 0분, 30분마다 실행
+
+*/10 * * * * 
+매 10분 마다 실행
+
+*/10 22,23 5-10 * * 
+5일에서 10일까지 22시, 23시 매 10분마다 실행
+</code></pre>
+
+<h5 id="job-example">job example</h5>
+
+<pre><code class="language-shell">* * * * * /root/test/test.sh
+test.sh를 매 분마다 실행
+</code></pre>
+
+<h5 id="logging">logging</h5>
+
+<pre><code class="language-shell">* * * * * /root/test/test.sh &gt; /var/log/test/test.sh.log 2&gt;&amp;1
+test.sh.log에 파일이 매분마다 경신됨
+
+* * * * * /root/test/test.sh &gt;&gt; /var/log/test/test.sh.log 2&gt;&amp;1
+로그 누적해서 쌓음
+
+* * * * * /root/test/test.sh &gt; /dev/null 2&gt;&amp;1
+로그 안쌓음
+
+ 2&gt;&amp;1이란?
+ n &gt;&amp;m : 표준 출력과 표준 에러를 서로 바꾸는 것이다.
+ 0: 표준 입력 , 1: 표준 출력, 2: 표준에러를 의미한다.
+ 즉 2&gt;&amp;1이란 표준 에러를 표준 출력이 전달되는 곳으로 전달! 이라는 의미이다. (표준 입력의 경우 &lt;&amp;0)
+ 
+ 조금 더 들어가면 /dev/null 은 /dev/null로 출력하므로 출력이 안보이기에 로그를 남기지 않는 것입니다.
+
+</code></pre>
+
+<p>참고</p>
+
+<p>jdm.kr/blog/2</p>
+
+<p>www.adminschoice.com/crontab-quick-reference</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Soonhwan.Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://2cycle.github.io/2019/linuxcommand_2/>https://2cycle.github.io/2019/linuxcommand_2/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/linuxcommand/">
+                    #linuxCommand</a></span>
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/crontab/">
+                    #crontab</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://2cycle.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://2cycle.github.io/2019/linuxcommand_1/" class="prev" rel="prev" title="LinuxCommand_1"><i class="iconfont icon-left"></i>&nbsp;LinuxCommand_1</a>
+         
+        
+        <a href="https://2cycle.github.io/2019/ssl_monitering/" class="next" rel="next" title="Ssl_Monitering">Ssl_Monitering&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://2cycle.github.io">Soonhwan.Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

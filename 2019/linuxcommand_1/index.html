@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="kr-ko">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Soonhwan.Lee">
+  <meta name="description" content="Project - make me better">
+  <meta name="keywords" content="development, programmer, dev, backend">
+  
+  <link rel="prev" href="https://2cycle.github.io/2019/effectivejava_item_2/" />
+  <link rel="next" href="https://2cycle.github.io/2019/linuxcommand_2/" />
+  <link rel="canonical" href="https://2cycle.github.io/2019/linuxcommand_1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           LinuxCommand_1 | ecycle
+       
+  </title>
+  <meta name="title" content="LinuxCommand_1 | ecycle">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://2cycle.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "LinuxCommand_1",
+    "headline" : "LinuxCommand_1",
+    "description" : "요 근래 회사에서 주로 진행한 업무는 check_mk 모니터링 및 SSL 만료확인용 shell script 를 만드는 것이었다.
+리눅스 사용시 몇 개의 익숙한 명령문만 사용하였지만, 이번에 사용한 여러 명령문을 정리해보려고 한다.
+리눅스 커널 확인 getconf getcong utility shall write to the standard output the value of the variable spcified by the system_var operand
+즉 시스템 환경변수를 확인할 수 있는 명령문이다.
+ -v [path_var, pathname, system_var]
+아마도 구성된 변수를 결정하는 specific한 사양이나 버전을 표시하는 것 같다.",
+    "inLanguage" : "kr-ko",
+    "author" : "Soonhwan.Lee",
+    "creator" : "Soonhwan.Lee",
+    "publisher": "Soonhwan.Lee",
+    "accountablePerson" : "Soonhwan.Lee",
+    "copyrightHolder" : "Soonhwan.Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-23 17:41:10 &#43;0900 KST",
+    "dateModified" : "2019-01-23 17:41:10 &#43;0900 KST",
+    "url" : "https://2cycle.github.io/2019/linuxcommand_1/",
+    "wordCount" : "125",
+    "keywords" : [ "linuxcommand", "ecycle"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">LinuxCommand_1</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-23 itemprop="datePublished">January 23, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://2cycle.github.io/categories/linux/"> linux </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>요 근래 회사에서 주로 진행한 업무는 check_mk 모니터링 및 SSL 만료확인용 shell script 를 만드는 것이었다.</p>
+
+<p>리눅스 사용시 몇 개의 익숙한 명령문만 사용하였지만, 이번에 사용한 여러 명령문을 정리해보려고 한다.</p>
+
+<h2 id="리눅스-커널-확인">리눅스 커널 확인</h2>
+
+<h4 id="getconf">getconf</h4>
+
+<p><em>getcong utility shall write to the standard output the value of the variable spcified by the system_var operand</em></p>
+
+<p>즉 시스템 환경변수를 확인할 수 있는 명령문이다.</p>
+
+<blockquote>
+<p><strong>-v</strong> [path_var, pathname, system_var]</p>
+
+<p>아마도 구성된 변수를 결정하는 specific한 사양이나 버전을 표시하는 것 같다.</p>
+</blockquote>
+
+<pre><code class="language-shell"># getconf LONG_BIT
+ &gt; 32 or 64 
+ 각 os의 비트 값을 출력한다.
+</code></pre>
+
+<h3 id="arch">arch</h3>
+
+<pre><code class="language-shell"># arch
+ &gt; i386 or i686 or x86_64
+ i363,i686의 경우 32비트이다. 2015 macpro mid 기준 i386
+</code></pre>
+
+<h3 id="uname">uname</h3>
+
+<pre><code class="language-shell"># uname -m
+ &gt; x86_64
+ -a : 모든 정보
+ -s : systeom OS 정보
+ -n : 호스트 이름 정보
+</code></pre>
+
+<p>참고</p>
+
+<p>linux.die.net/man/1/getconf</p>
+
+<p><a href="Https://zetawiki.com/wiki/" rel="nofollow noreferrer" target="_blank">Https://zetawiki.com/wiki/</a></p>
+
+<p>​</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Soonhwan.Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://2cycle.github.io/2019/linuxcommand_1/>https://2cycle.github.io/2019/linuxcommand_1/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/linuxcommand/">
+                    #linuxcommand</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://2cycle.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://2cycle.github.io/2019/effectivejava_item_2/" class="prev" rel="prev" title="EffectiveJava_Item_2"><i class="iconfont icon-left"></i>&nbsp;EffectiveJava_Item_2</a>
+         
+        
+        <a href="https://2cycle.github.io/2019/linuxcommand_2/" class="next" rel="next" title="LinuxCommand_2">LinuxCommand_2&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://2cycle.github.io">Soonhwan.Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

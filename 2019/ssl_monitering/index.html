@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="kr-ko">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Soonhwan.Lee">
+  <meta name="description" content="Project - make me better">
+  <meta name="keywords" content="development, programmer, dev, backend">
+  
+  <link rel="prev" href="https://2cycle.github.io/2019/linuxcommand_2/" />
+  
+  <link rel="canonical" href="https://2cycle.github.io/2019/ssl_monitering/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Ssl_Monitering | ecycle
+       
+  </title>
+  <meta name="title" content="Ssl_Monitering | ecycle">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://2cycle.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Ssl_Monitering",
+    "headline" : "Ssl_Monitering",
+    "description" : "SSL 만료 확인 Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들에 대해선 ssl 인증이 만료되는 것을 미리 알기 위해서 간단히 shell script를 만들어서 crontab에 등록해놓았다.
+스크립트는 아주 간단한데
+ 먼저 ssl 위치를 확인하고 인증 만료 시간을 확인한다.  $ openssl x509 -in /etc/httpd/conf/ssl/인증서.crt   오늘 날짜를 가지고와서 notAfter 타임과 비교하여 차이를 구한다.
+ 조건 일자 이상인 경우 알림을 알린다. (필자의 경우 curl을 통해 post콜을 하였다.",
+    "inLanguage" : "kr-ko",
+    "author" : "Soonhwan.Lee",
+    "creator" : "Soonhwan.Lee",
+    "publisher": "Soonhwan.Lee",
+    "accountablePerson" : "Soonhwan.Lee",
+    "copyrightHolder" : "Soonhwan.Lee",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-23 18:49:00 &#43;0900 KST",
+    "dateModified" : "2019-01-23 18:49:00 &#43;0900 KST",
+    "url" : "https://2cycle.github.io/2019/ssl_monitering/",
+    "wordCount" : "145",
+    "keywords" : [ "ssl_monitoring","ssl","ssl_expire", "ecycle"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://2cycle.github.io">ecycle</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Ssl_Monitering</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-23 itemprop="datePublished">January 23, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://2cycle.github.io/categories/linux/"> linux </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="ssl-만료-확인">SSL 만료 확인</h2>
+
+<p>Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들에 대해선 ssl 인증이 만료되는 것을 미리 알기 위해서 간단히 shell script를 만들어서 crontab에 등록해놓았다.</p>
+
+<p>스크립트는 아주 간단한데</p>
+
+<ol>
+<li>먼저 ssl 위치를 확인하고 인증 만료 시간을 확인한다.</li>
+</ol>
+
+<pre><code class="language-shell">   $ openssl x509 -in /etc/httpd/conf/ssl/인증서.crt
+</code></pre>
+
+<ol>
+<li><p>오늘 날짜를 가지고와서 notAfter 타임과 비교하여 차이를 구한다.</p></li>
+
+<li><p>조건 일자 이상인 경우 알림을 알린다. (필자의 경우 curl을 통해 post콜을 하였다.)</p></li>
+</ol>
+
+<pre><code class="language-shell">#!/bin/bash
+
+data=`echo | openssl x509 -in /etc/httpd/conf/ssl/log.cresendo.net.crt -noout -dates | grep notAfter | sed -e 's#notAfter=##'`
+
+#echo &quot;${data}&quot;
+
+diffdays=300
+ssldate=`date -d &quot;${data}&quot; '+%s'`
+nowdate=`date '+%s'`
+diff=&quot;$((${ssldate}-${nowdate}))&quot;
+ex_days=&quot;$((${diff}/3600/24))&quot;
+#echo &quot;${diff}&quot;
+#echo &quot;${ex_days}&quot;
+
+if [ ${diff} -lt $((${diffdays}*24*3600)) ]
+then
+    if [ ${diff} -gt 0 ]
+    then
+        curl -H &quot;Content-Type: application/json&quot; \
+			-d '{&quot;title&quot;:&quot;WARNING!! LOG SERVER  SSL WILL BE EXPIRE&quot;, &quot;message&quot;:&quot;The LOG SERVER certificate will expried in '&quot;${ex_days}&quot;' days&quot;, &quot;sendTo&quot; : [&quot;test@test.com&quot;] }' \
+-k EMAIL_API_SERVER_URL
+    fi
+fi
+
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Soonhwan.Lee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://2cycle.github.io/2019/ssl_monitering/>https://2cycle.github.io/2019/ssl_monitering/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/ssl_monitoring/">
+                    #ssl_monitoring</a></span>
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/ssl/">
+                    #ssl</a></span>
+            
+            <span class="tag"><a href="https://2cycle.github.io/tags/ssl_expire/">
+                    #ssl_expire</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://2cycle.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://2cycle.github.io/2019/linuxcommand_2/" class="prev" rel="prev" title="LinuxCommand_2"><i class="iconfont icon-left"></i>&nbsp;LinuxCommand_2</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://2cycle.github.io">Soonhwan.Lee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
