@@ -57,7 +57,7 @@ then
     if [ ${diff} -gt 0 ]
     then
         curl -H &amp;quot;Content-Type: application/json&amp;quot; \
-			-d &#39;{&amp;quot;title&amp;quot;:&amp;quot;WARNING!! LOG SERVER  SSL WILL BE EXPIRE&amp;quot;, &amp;quot;message&amp;quot;:&amp;quot;The LOG SERVER certificate will expried in &#39;&amp;quot;${ex_days}&amp;quot;&#39; days&amp;quot;, &amp;quot;sendTo&amp;quot; : [&amp;quot;test@test.com&amp;quot;] }&#39; \
+-d &#39;{&amp;quot;title&amp;quot;:&amp;quot;WARNING!! LOG SERVER  SSL WILL BE EXPIRE&amp;quot;, &amp;quot;message&amp;quot;:&amp;quot;The LOG SERVER certificate will expried in &#39;&amp;quot;${ex_days}&amp;quot;&#39; days&amp;quot;, &amp;quot;sendTo&amp;quot; : [&amp;quot;test@test.com&amp;quot;] }&#39; \
 -k EMAIL_API_SERVER_URL
     fi
 fi
