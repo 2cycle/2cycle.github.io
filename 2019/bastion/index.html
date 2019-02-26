@@ -9,9 +9,9 @@
   <meta name="description" content="Project - make me better">
   <meta name="keywords" content="development, programmer, dev, backend">
   
-  <link rel="prev" href="https://2cycle.github.io/2019/linuxcommand_2/" />
-  <link rel="next" href="https://2cycle.github.io/2019/bastion/" />
-  <link rel="canonical" href="https://2cycle.github.io/2019/ssl_monitering/" />
+  <link rel="prev" href="https://2cycle.github.io/2019/ssl_monitering/" />
+  
+  <link rel="canonical" href="https://2cycle.github.io/2019/bastion/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           ssl파일 만료일자 모니터링 | ecycle
+           Bastion | ecycle
        
   </title>
-  <meta name="title" content="ssl파일 만료일자 모니터링 | ecycle">
+  <meta name="title" content="Bastion | ecycle">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,13 +44,13 @@
          "@id": "https://2cycle.github.io"
     },
     "articleSection" : "posts",
-    "name" : "ssl파일 만료일자 모니터링",
-    "headline" : "ssl파일 만료일자 모니터링",
-    "description" : "SSL 만료 확인 Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들이기에&hellip;
-간단히 ssl 인증이 만료되는 것을 방지하기위해 간단히 shell script를 만들어서 crontab에 등록해놓았다.
-스크립트는 아주 간단한데
- 먼저 ssl 위치를 확인하고 인증 만료 시간을 확인한다.  $ openssl x509 -in /etc/httpd/conf/ssl/인증서.crt   오늘 날짜를 가지고와서 notAfter 타임과 비교하여 차이를 구한다.
- 조건 일자 이상인 경우 알림을 알린다. (필자의 경우 curl을 통해 post콜을 하였다.",
+    "name" : "Bastion",
+    "headline" : "Bastion",
+    "description" : "Bastion 적용기  AWS VPC
+AWS의 VPC(Virtual Private Cloud) 서비스는 가상의 네트워크 환경을 구성케하는 서비스이다.
+이 서비스를 통해 Private Network와. public Network 환경을 디자인 할 수 있다.
+ Instance를 생성할 때 Security group로만 접근을 제어하는 방안을 사용하곤 했는데, 실 서비스를 운영하면서 네트워크 접근의 보안을 위해 bastion 구성을 도입했고 일부분 구축한 경험을 정리해보고자 한다.
+Bastion (번역 - 요새)서비스는 bastion host를 통해 다른 VM에 ssh로 연결하게 하는 보안 방법이기 때문에 public subnet에 위치해야하고 방화벽 및 보안 정책을 적용시켜야한다.",
     "inLanguage" : "kr-ko",
     "author" : "Soonhwan.Lee",
     "creator" : "Soonhwan.Lee",
@@ -58,11 +58,11 @@
     "accountablePerson" : "Soonhwan.Lee",
     "copyrightHolder" : "Soonhwan.Lee",
     "copyrightYear" : "2019",
-    "datePublished": "2019-01-23 18:49:00 &#43;0900 KST",
-    "dateModified" : "2019-01-23 18:49:00 &#43;0900 KST",
-    "url" : "https://2cycle.github.io/2019/ssl_monitering/",
-    "wordCount" : "143",
-    "keywords" : [ "ssl_monitoring","ssl","ssl_expire", "ecycle"]
+    "datePublished": "2019-02-26 18:27:39 &#43;0900 KST",
+    "dateModified" : "2019-02-26 18:27:39 &#43;0900 KST",
+    "url" : "https://2cycle.github.io/2019/bastion/",
+    "wordCount" : "129",
+    "keywords" : [ "bastion","aws", "ecycle"]
 }
 </script>
 
@@ -120,16 +120,17 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">ssl파일 만료일자 모니터링</h1>
+        <h1 class="post-title" itemprop="name headline">Bastion</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://2cycle.github.io" rel="author">Soonhwan.Lee</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-01-23 itemprop="datePublished">January 23, 2019</time>
+                on <time datetime=2019-02-26 itemprop="datePublished">February 26, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://2cycle.github.io/categories/linux/"> linux </a>
+                        <a href="https://2cycle.github.io/categories/aws/"> aws </a>
+                        <a href="https://2cycle.github.io/categories/security/"> security </a>
                         
                 </span>
         </div>
@@ -152,52 +153,34 @@
 
           
 
-<h2 id="ssl-만료-확인">SSL 만료 확인</h2>
+<h1 id="bastion-적용기">Bastion 적용기</h1>
 
-<p>Let&rsquo;s encrypt를 쓰면 자동 연장이 되지만 3개월마다 갱신이 되는 것에 대한 불안감과 1년 내로 사라질 서버들이기에&hellip;</p>
+<blockquote>
+<p>AWS VPC</p>
 
-<p>간단히 ssl 인증이 만료되는 것을 방지하기위해 간단히 shell script를 만들어서 crontab에 등록해놓았다.</p>
+<p>AWS의 VPC(Virtual Private Cloud) 서비스는 가상의 네트워크 환경을 구성케하는 서비스이다.</p>
 
-<p>스크립트는 아주 간단한데</p>
+<p>이 서비스를 통해 Private Network와. public Network 환경을 디자인 할 수 있다.</p>
+</blockquote>
+
+<p>Instance를 생성할 때 Security group로만 접근을 제어하는 방안을 사용하곤 했는데, 실 서비스를 운영하면서 네트워크 접근의 보안을 위해 bastion 구성을 도입했고 일부분 구축한 경험을 정리해보고자 한다.</p>
+
+<p><img width="715" alt="bastion" src="https://user-images.githubusercontent.com/17693443/53405157-91aaae00-39fa-11e9-9588-7231403501ba.png"></p>
+
+<p>Bastion (번역 - 요새)서비스는 bastion host를 통해 다른 VM에 ssh로 연결하게 하는 보안 방법이기 때문에 public subnet에 위치해야하고 방화벽 및 보안 정책을 적용시켜야한다.</p>
+
+<p>bastion을 통해 ssh 접근 보안 방식은 여러 방법이 있겠지만 한 가지 방안을 정리해보면</p>
 
 <ol>
-<li>먼저 ssl 위치를 확인하고 인증 만료 시간을 확인한다.</li>
+<li>bastion 서버에서 ssh key를 생성 후 복사</li>
+<li>각 운영서버의 .ssh/authorized_keys 파일 내에 bastion public key를 복사</li>
+<li>운영서버의 inbound정책을 bastion으로만 설정</li>
+<li>Bastion 에서 접근을 편하게 하기 위해 hosts를 등록하고, bashrc에서 server alias를 등록</li>
 </ol>
 
-<pre><code class="language-shell">   $ openssl x509 -in /etc/httpd/conf/ssl/인증서.crt
-</code></pre>
+<p>을 통해 bastion서버 설정을 사용할 수 있다.</p>
 
-<ol>
-<li><p>오늘 날짜를 가지고와서 notAfter 타임과 비교하여 차이를 구한다.</p></li>
-
-<li><p>조건 일자 이상인 경우 알림을 알린다. (필자의 경우 curl을 통해 post콜을 하였다.)</p></li>
-</ol>
-
-<pre><code class="language-shell">#!/bin/bash
-
-data=`echo | openssl x509 -in /etc/httpd/conf/ssl/log.cresendo.net.crt -noout -dates | grep notAfter | sed -e 's#notAfter=##'`
-
-#echo &quot;${data}&quot;
-
-diffdays=300
-ssldate=`date -d &quot;${data}&quot; '+%s'`
-nowdate=`date '+%s'`
-diff=&quot;$((${ssldate}-${nowdate}))&quot;
-ex_days=&quot;$((${diff}/3600/24))&quot;
-#echo &quot;${diff}&quot;
-#echo &quot;${ex_days}&quot;
-
-if [ ${diff} -lt $((${diffdays}*24*3600)) ]
-then
-    if [ ${diff} -gt 0 ]
-    then
-        curl -H &quot;Content-Type: application/json&quot; \
--d '{&quot;title&quot;:&quot;WARNING!! LOG SERVER  SSL WILL BE EXPIRE&quot;, &quot;message&quot;:&quot;The LOG SERVER certificate will expried in '&quot;${ex_days}&quot;' days&quot;, &quot;sendTo&quot; : [&quot;test@test.com&quot;] }' \
--k EMAIL_API_SERVER_URL
-    fi
-fi
-
-</code></pre>
+<p>출처 - <a href="http://tenmilesquare.com/using-ssh-through-a-bastion-host-transparently/" rel="nofollow noreferrer" target="_blank">http://tenmilesquare.com/using-ssh-through-a-bastion-host-transparently/</a></p>
 
     </div>
 
@@ -212,7 +195,7 @@ fi
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://2cycle.github.io/2019/ssl_monitering/>https://2cycle.github.io/2019/ssl_monitering/</span>
+                    <a href=https://2cycle.github.io/2019/bastion/>https://2cycle.github.io/2019/bastion/</span>
             </p>
             
             
@@ -224,14 +207,11 @@ fi
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://2cycle.github.io/tags/ssl_monitoring/">
-                    #ssl_monitoring</a></span>
+            <span class="tag"><a href="https://2cycle.github.io/tags/bastion/">
+                    #bastion</a></span>
             
-            <span class="tag"><a href="https://2cycle.github.io/tags/ssl/">
-                    #ssl</a></span>
-            
-            <span class="tag"><a href="https://2cycle.github.io/tags/ssl_expire/">
-                    #ssl_expire</a></span>
+            <span class="tag"><a href="https://2cycle.github.io/tags/aws/">
+                    #aws</a></span>
             
             </section>
         
@@ -243,10 +223,8 @@ fi
 
     <div class="post-nav">
         
-        <a href="https://2cycle.github.io/2019/linuxcommand_2/" class="prev" rel="prev" title="리눅스 커맨드 v2"><i class="iconfont icon-left"></i>&nbsp;리눅스 커맨드 v2</a>
+        <a href="https://2cycle.github.io/2019/ssl_monitering/" class="prev" rel="prev" title="ssl파일 만료일자 모니터링"><i class="iconfont icon-left"></i>&nbsp;ssl파일 만료일자 모니터링</a>
          
-        
-        <a href="https://2cycle.github.io/2019/bastion/" class="next" rel="next" title="Bastion">Bastion&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
