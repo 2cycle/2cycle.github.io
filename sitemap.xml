@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://2cycle.github.io/2019/backendquiz/</loc>
+      
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://2cycle.github.io/post/backendquiz/</loc>
+      
+      <lastmod>2019-12-25T01:02:15+09:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://2cycle.github.io/2019/bastion/</loc>
       
       <lastmod>2019-02-26T18:27:39+09:00</lastmod>
@@ -101,7 +121,21 @@
     </url>
   
     <url>
+      <loc>https://2cycle.github.io/categories/backend/</loc>
+      
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://2cycle.github.io/categories/</loc>
+      
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
       
       
       
@@ -113,7 +147,31 @@
     <url>
       <loc>https://2cycle.github.io/posts/</loc>
       
-      <lastmod>2019-02-26T18:27:39+09:00</lastmod>
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://2cycle.github.io/post/</loc>
+      
+      <lastmod>2019-12-25T01:02:15+09:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://2cycle.github.io/categories/quiz/</loc>
+      
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
       
       
       
@@ -183,7 +241,7 @@
     <url>
       <loc>https://2cycle.github.io/</loc>
       
-      <lastmod>2019-02-26T18:27:39+09:00</lastmod>
+      <lastmod>2019-12-25T01:07:16+09:00</lastmod>
       
       
       
