@@ -13,16 +13,6 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/post/backendquiz/</loc>
-      
-      <lastmod>2019-12-25T01:02:15+09:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://2cycle.github.io/2019/bastion/</loc>
       
       <lastmod>2019-02-26T18:27:39+09:00</lastmod>
@@ -157,18 +147,6 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/post/</loc>
-      
-      <lastmod>2019-12-25T01:02:15+09:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://2cycle.github.io/categories/quiz/</loc>
       
       <lastmod>2019-12-25T01:07:16+09:00</lastmod>
@@ -191,7 +169,7 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/tags/aws/</loc>
+      <loc>https://2cycle.github.io/categories/aws/</loc>
       
       <lastmod>2019-02-26T18:27:39+09:00</lastmod>
       
@@ -203,7 +181,7 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/categories/aws/</loc>
+      <loc>https://2cycle.github.io/tags/aws/</loc>
       
       <lastmod>2019-02-26T18:27:39+09:00</lastmod>
       
@@ -251,7 +229,7 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/tags/effectivejava/</loc>
+      <loc>https://2cycle.github.io/categories/effectivejava/</loc>
       
       <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
@@ -263,7 +241,7 @@
     </url>
   
     <url>
-      <loc>https://2cycle.github.io/categories/effectivejava/</loc>
+      <loc>https://2cycle.github.io/tags/effectivejava/</loc>
       
       <lastmod>2019-01-09T00:00:00+00:00</lastmod>
       
