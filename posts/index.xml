@@ -107,5 +107,14 @@ job설정 주기 결정 *	*	*	*	* (분) (시간) (일)	(월)	(요일)  분, 시�
 첫 단추를 잘 꿰었길.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://2cycle.github.io/1/%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC-%E1%84%85%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%83%E1%85%A9%E1%86%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2cycle.github.io/1/%E1%84%89%E1%85%B3%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC-%E1%84%85%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%83%E1%85%A9%E1%86%A8/</guid>
+      <description>## Spring Rest Docs ### 도입 ```text Spring REST Docs makes use of snippets produced by tests written with Spring MVC’s test framework, Spring WebFlux’s WebTestClient or REST Assured 3. This test-driven approach helps to guarantee the accuracy of your service’s documentation. If a snippet is incorrect the test that produces it will fail. ``` &amp;gt; 테스트 지향적인 접근 방법은 서비스 Document의 정확성을 보장하는데 도움을 준다. Spring MVC test를 통한 정보를 통해서 문서 조각(snippet)을 모아셔 api document를 만드는 툴 Asciidoctor 를 사용하여 HTML을 생성.</description>
+    </item>
+    
   </channel>
 </rss>

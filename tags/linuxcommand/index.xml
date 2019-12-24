@@ -26,4 +26,8 @@
     </item>
     
   </channel>
+</rss>��서 10일까지 22시, 23시 매 10분마다 실행  job example * * * * * /root/test/test.</description>
+    </item>
+    
+  </channel>
 </rss>
